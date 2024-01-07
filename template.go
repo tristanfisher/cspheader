@@ -4,7 +4,7 @@ package cspheader
 const TemplateTextSourceOption = "" +
 	"{{ if not .Allow }}'none'{{ else }}" +
 	"{{ if .AllowSelf }}'self'{{ end }}" +
-	"{{ range $v := .Values }} $v{{ end }}" +
+	"{{ range $v := .Values }} {{$v}}{{ end }}" +
 	"{{ if .UnsafeEval }} 'unsafe-eval'{{ end }}" +
 	"{{ if .WasmUnsafeEval }} 'wasm-unsafe-eval'{{ end }}" +
 	"{{ if .UnsafeHashes }} 'unsafe-hashes'{{ end }}" +
@@ -34,10 +34,10 @@ const TemplateTextSandbox = "" +
 const TemplateTextFrameAncestorOptions = "" +
 	"{{ if not .Allow }}'none'{{ else }}" +
 	"{{ if .AllowSelf }}'self'{{ end }}" +
-	"{{ range $v := .HostSources }} $v{{ end }}" +
-	"{{ range $v := .SchemeSources }} $v{{ end }}" +
+	"{{ range $v := .HostSources }} {{$v}}{{ end }}" +
+	"{{ range $v := .SchemeSources }} {{$v}}{{ end }}" +
 	"{{ end }}" // if not .Allow
 
-const TemplateTextUnquotedOptions = "{{ range $v := .Values }}$v {{ end }}"
+const TemplateTextUnquotedOptions = "{{ range $v := .Values }}{{$v}} {{ end }}"
 
 const TemplateTextUnquotedOption = "{{ .Value }}"
