@@ -12,7 +12,7 @@ func SecurityOptionsReactJS() Policy {
 	// unsafe-inline required for react unless the follow are set in the "build":
 	// - INLINE_RUNTIME_CHUNK=false
 	// - IMAGE_INLINE_SIZE_LIMIT=false
-	securityOptions.CSP.ScriptSrc = CSPSourceOptions{Allow: true, AllowSelf: true, StrictDynamic: true}
+	securityOptions.CSP.ScriptSrc = CSPSourceOptions{Allow: true, AllowSelf: true}
 	// unsafe-inline required for react
 	securityOptions.CSP.StyleSrcAttr = CSPSourceOptions{Allow: true, AllowSelf: true, UnsafeInline: true}
 
